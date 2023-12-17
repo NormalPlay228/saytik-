@@ -1,0 +1,2 @@
+# saytik-
+Proverka dlya Synergy
