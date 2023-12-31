@@ -1,10 +1,9 @@
-/* ===== Google Font Import - Poformsins ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: content-box;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -13,13 +12,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #a62cde;
+    background-color: #9400D3;
 }
 
 .container{
     position: relative;
     max-width: 450px;
-    width: 100%;
+    width: 50%;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -30,8 +29,8 @@ body{
 .container .forms{
     display: flex;
     align-items: center;
-    height: 440px;
-    width: 200%;
+    height: 420px;
+    width: 160%;
     transition: height 0.2s ease;
 }
 
@@ -74,7 +73,7 @@ body{
     bottom: 0;
     height: 3px;
     width: 30px;
-    background-color: #a62cde;
+    background-color: #4070f4;
     border-radius: 25px;
 }
 
@@ -99,7 +98,7 @@ body{
 }
 
 .input-field input:is(:focus, :valid){
-    border-bottom-color: #a62cde;
+    border-bottom-color: #9400D3;
 }
 
 .input-field i{
@@ -112,14 +111,14 @@ body{
 }
 
 .input-field input:is(:focus, :valid) ~ i{
-    color: #4070f4;
+    color: #9400D3;
 }
 
 .input-field i.icon{
     left: 0;
 }
 .input-field i.showHidePw{
-    right: 0;
+    left: 100%;
     cursor: pointer;
     padding: 10px;
 }
@@ -138,7 +137,7 @@ body{
 
 .checkbox-content input{
     margin-right: 10px;
-    accent-color: #a62cde;
+    accent-color: #9400D3;
 }
 
 .form .text{
@@ -147,7 +146,7 @@ body{
 }
 
 .form a.text{
-    color: #a62cde;
+    color: #9400D3;
     text-decoration: none;
 }
 .form a:hover{
@@ -165,16 +164,18 @@ body{
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 6px;
-    background-color: #a62cde;
+    background-color: indigo;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 0 30px #9400D3;
 }
 
 .button input:hover{
-    background-color: #265df2;
+    background-color: #9400D3;
 }
 
 .form .login-signup{
     margin-top: 30px;
     text-align: center;
 }
+
