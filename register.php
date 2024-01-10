@@ -12,13 +12,25 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO users (name, passport, email, password) VALUES ('$name','passport', '$email', '$password')";
-    if ($conn->query($sql) === TRUE) {
-        echo "Регистрация прошла успешно!";
+    // Проверяем, существует ли уже запись с указанным email
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        echo "Учетная запись с указанным email уже существует.";
     } else {
-        echo "Ошибка при регистрации: " . $conn->error;
+        // Выполняем вставку новой записи
+        $sql = "INSERT INTO users (name, passport, email, password) VALUES ('$name','$passport', '$email', '$password')";
+        if ($conn->query($sql) === true) {
+            echo "Учетная запись успешно создана!";
+              header("Location: usercab2.php");
+        } else {
+            echo "Ошибка при создании учетной записи: " . $conn->error;
+
+        }
     }
 }
 
+// Закрытие соединения с базой данных
 $conn->close();
 ?>

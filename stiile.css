@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9400D3;
+}
+
+.container{
+    position: relative;
+    max-width: 460px;
+    width: 60%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 10px;
+}
+
+.container .forms{
+    display: flex;
+    align-items: center;
+    height: 520px;
+    width: 145%;
+    transition: height 0.2s ease;
+}
+
+
+.container .form{
+    width: 70%;
+    padding: 10px;
+    background-color: #fff;
+    transition: margin-left 0.18s ease;
+}
+
+.form .input-field{
+    position: relative;
+    height: 10px;
+    width: 90%;
+}
+
+.input-field input{
+    position: absolute;
+    height: 100%;
+    width: 90%;
+    padding:  5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+
+.form .button{
+    margin-top: 7px;
+}
+
+.form .button input{
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    background-color: indigo;
+    cursor: pointer;
+    transition: all 0.8s ease;
+    box-shadow: 0 0 10px #9400D3;
+}
+
+.button input:hover{
+    background-color: #9400D3;
+}
+.form .a{
+    margin-top: 5px;
+}
+
+.form .a{
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    border-radius: 7px;
+    background-color: indigo;
+    cursor: pointer;
+    transition: all 0.8s ease;
+    box-shadow: 0 0 10px #9400D3;
+}
+
+.a:hover{
+    background-color: #9400D3;
+}
+a {
+    position: fixed;
+    bottom: 70px; /* для перемещения вниз */
+}

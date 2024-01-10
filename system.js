@@ -25,6 +25,7 @@ const container = document.querySelector(".container"),
         })
     })
 
+    // js code to appear signup and login form
     signUp.addEventListener("click", ( )=>{
         container.classList.add("active");
     });
