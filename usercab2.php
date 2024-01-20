@@ -1,16 +1,13 @@
 <?php
 $conn = new mysqli("localhost","root","","userdb");
 
-// Проверка соединения
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Если пользователь выбрал фото для загрузки
 if (isset($_FILES['photo'])) {
     $file = $_FILES['photo'];
 
-    // Проверка типа файла (можете добавить свои допустимые расширения и размер)
     $allowedExtensions = ['jpg', 'jpeg', 'png'];
     $maxSize = 5 * 1024 * 1024;
 
@@ -22,25 +19,21 @@ if (isset($_FILES['photo'])) {
     $fileExtension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
     if (in_array($fileExtension, $allowedExtensions) && $fileSize <= $maxSize && $fileError === 0) {
-        // Генерируем уникальное имя для файла
         $newFilename = uniqid('', true) . "." . $fileExtension;
 
         // Сохраняем файл в папке на сервере
         move_uploaded_file($fileTmpName, "uploads/" . $newFilename);
 
-        // Обновляем фото в таблице users
         $sql = "UPDATE users SET photo='$newFilename'";
         $conn->query($sql);
 
         echo "Фото успешно загружено и сохранено в базе данных.";
 
-        // Обновляем переменную $filename, чтобы новое фото сразу отобразилось на странице
         $filename = $newFilename;
     } else {
         echo "Ошибка при загрузке фото.";
     }
 }
-// Получаем имя фото пользователя из таблицы users
 $sql = "SELECT photo FROM users LIMIT 1";
 $result = $conn->query($sql);
 
@@ -59,10 +52,13 @@ $conn->close();
 </head>
 <body>
    <div class="container">
+    <div class="link">
   <ul>
     <li><a href="registration_and_login.html">Войти</a></li>
     <li><a href="registration_and_login.html">Зарегистрироваться</a></li>
+    <li><a href="aboutsite/index.html">Главная</a></li>
   </ul>
+  </div>
 
 <div class="wrapper">
     <div class="left">
@@ -73,7 +69,9 @@ $conn->close();
   <script src="script.js"></script>
 <img src="uploads/<?php echo $filename; ?>" alt="Фото">
         <?php include('data.php'); ?>
+        <div class="h4">
        <p><?php echo $_SESSION['name']; ?></p>
+       </div>
     </div>
     <div class="right">
         <div class="info">

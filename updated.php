@@ -9,12 +9,10 @@
     <?php
     $conn = new mysqli("localhost","root","","userdb");
 
-    // Проверка подключения к базе данных
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Получение обновленных данных из БД через параметр в URL
     $id = $_GET['id'];
     $sql = "SELECT * FROM users WHERE id='$id'";
 
@@ -33,6 +31,9 @@
 
     $conn->close();
     ?>
+    <form action="registration_and_login.html" method="submit">
+    <input type="submit" value="Войти">
+</form>
 </body>
 </html>
 

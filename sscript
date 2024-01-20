@@ -1,0 +1,34 @@
+// Обработчик события отправки формы
+document.getElementById('change-password-form').addEventListener('submit', function(event) {
+    // Отменяем отправку формы
+    event.preventDefault();
+
+    // Получаем значения полей формы
+    var oldPassword = document.getElementById('old-password').value;
+    var newPassword = document.getElementById('new-password').value;
+
+    // Создаем объект XMLHttpRequest для отправки AJAX-запроса на сервер
+    var xhr = new XMLHttpRequest();
+
+    // Настраиваем запрос
+    xhr.open('POST', 'change_password.php', true);
+
+    // Устанавливаем заголовок для передачи данных формы
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    // Отправляем данные формы на сервер
+    xhr.send('old_password=' + encodeURIComponent(oldPassword) + '&new_password=' + encodeURIComponent(newPassword));
+
+    // Обрабатываем ответ сервера
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // Если запрос успешен, выводим ответ на странице
+                alert(xhr.responseText);
+            } else {
+                // Если произошла ошибка, выводим сообщение
+                alert('Произошла ошибка. Попробуйте еще раз.');
+            }
+        }
+    };
+});

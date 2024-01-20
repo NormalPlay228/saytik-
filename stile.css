@@ -9,9 +9,21 @@
 }
 
 body{
-   background-color: #4070f4;
+   background-color: white;
 }
+.link{
+  display: flex;
+  justify-content: flex-end;
+  background-color: lightblue;
+  margin-left: auto;
+  width: 100vw;
+  top: 50px;
+  left: 70%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  columns: unset;
 
+
+}
 .wrapper{
   position: absolute;
   top: 50%;
@@ -27,10 +39,15 @@ body{
   background: linear-gradient(to right,#9400D3,#4070f4);
   padding: 10px 5px;
   border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 0px;
   text-align: center;
   color: #fff;
 
+}
+.h4{
+  background: linear-gradient(to right, yellow 0%, green 100%);
+  color: transparent;
+  background-clip: text;
 }
 
 .wrapper .left img{

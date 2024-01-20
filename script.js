@@ -1,4 +1,3 @@
-// Функция для загрузки фото
 function uploadPhoto(event) {
     event.preventDefault();
 
@@ -20,7 +19,6 @@ function uploadPhoto(event) {
     request.send(formData);
 }
 
-// Функция для получения данных о пользователях
 function getUserData() {
     var request = new XMLHttpRequest();
     request.open('GET', 'usercab2.php', true);
@@ -39,11 +37,9 @@ function getUserData() {
     request.send();
 }
 
-// Обработчик события отправки формы
 var uploadForm = document.getElementById('upload_form');
 uploadForm.addEventListener('submit', uploadPhoto);
 
-// Загрузка данных о пользователях при загрузке страницы
 window.onload = function () {
     getUserData();
 };
